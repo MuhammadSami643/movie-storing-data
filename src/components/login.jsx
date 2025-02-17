@@ -1,5 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import "../componentsCSS/login.css";
 
 const Login = () => {
   // Validation Schema using Yup
@@ -63,6 +64,10 @@ const Login = () => {
         <div className="forgot-password">
           <a href="#">Forgot Password?</a>
         </div>
+
+        <p>
+          Don&apos;t have an account? <a href="#">Sign up</a>
+        </p>
       </div>
     </div>
   );

@@ -1,28 +1,39 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import "../componentsCSS/login.css";
+import "../componentsCSS/signup.css";
 
-const Login = () => {
-  // Validation Schema using Yup
+const SignUp = () => {
+  // Validation Schema for Sign Up
   const validationSchema = Yup.object({
     username: Yup.string().required("Username is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
     password: Yup.string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
   });
 
   const handleSubmit = (values) => {
-    // Here you can handle the form submission
+    // Handle Sign Up Submission
     console.log(values);
   };
 
   return (
     <div className="App">
       <div className="login-container">
-        <h2>Login</h2>
+        <h2>Sign Up</h2>
         <Formik
-          initialValues={{ username: "", password: "" }}
+          initialValues={{
+            username: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}>
           {() => (
@@ -43,6 +54,12 @@ const Login = () => {
               </div>
 
               <div className="input-group">
+                <label htmlFor="email">Email</label>
+                <Field type="email" id="email" name="email" className="input" />
+                <ErrorMessage name="email" component="div" className="error" />
+              </div>
+
+              <div className="input-group">
                 <label htmlFor="password">Password</label>
                 <Field
                   type="password"
@@ -57,22 +74,35 @@ const Login = () => {
                 />
               </div>
 
-              <button type="submit">Login</button>
+              <div className="input-group">
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <Field
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  className="input"
+                />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="div"
+                  className="error"
+                />
+              </div>
+
+              <button type="submit">Sign Up</button>
             </Form>
           )}
         </Formik>
 
         <div className="forgot-password">
-          <a href="#">Forgot Password?</a>
+          <p>
+            Already have an account?
+            <Link to="/login"> Login</Link>
+          </p>
         </div>
-
-        <p>
-          Don&apos;t have an account?
-          <Link to="/signup"> Sign up</Link>
-        </p>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

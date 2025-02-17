@@ -1,0 +1,40 @@
+.activity-log {
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.activity-log h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.activity-log input {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.activity-log button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.activity-log button:hover {
+  background-color: var(--primary-color);
+}
+
+.log-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.log-list li {
+  padding: 8px;
+  background-color: #e6e6e6;
+  margin: 5px 0;
+  border-radius: 4px;
+}

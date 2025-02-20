@@ -26,13 +26,7 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/movies">Movies Page</Link>
-              </li>
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/movies">Movies Track</Link>
               </li>
               {/* "Made For" Dropdown */}
               <li
@@ -43,16 +37,27 @@ const Header = () => {
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li>
-                      <Link to="/daily-activity">My Daily Activity</Link>
+                      <Link to="/daily-activity">Task Management</Link>
                     </li>
                     <li>
-                      <Link to="/set-reminder">Setting Up a Reminder</Link>
+                      <Link to="/set-reminder">Time Management</Link>
                     </li>
                     <li>
-                      <Link to="/add-important">Add Something Important</Link>
+                      <Link to="/add-important">Notify and Alert</Link>
+                    </li>
+                    <li>
+                      <Link to="/add-important">
+                        Add Daily Routine Activity
+                      </Link>
                     </li>
                   </ul>
                 )}
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
               </li>
             </div>
             <li>
